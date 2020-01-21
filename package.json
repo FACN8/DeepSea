@@ -4,7 +4,9 @@
   "description": "FACN8 Autocomplete website/widget Project",
   "main": "scripts.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "dev": "nodemon server/server.js"
+
   },
   "repository": {
     "type": "git",
