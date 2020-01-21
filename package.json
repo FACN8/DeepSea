@@ -1,0 +1,23 @@
+{
+  "name": "DeepSea",
+  "version": "1.0.0",
+  "description": "FACN8 Autocomplete website/widget Project",
+  "main": "scripts.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FACN8/DeepSea.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/FACN8/DeepSea/issues"
+  },
+  "homepage": "https://github.com/FACN8/DeepSea#readme",
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
