@@ -4,9 +4,9 @@
   "description": "FACN8 Autocomplete website/widget Project",
   "main": "scripts.js",
   "scripts": {
+    "start": "node server/server.js",
     "test": "jest",
     "dev": "nodemon server/server.js"
-
   },
   "repository": {
     "type": "git",

@@ -16,7 +16,7 @@ function autocomplete(inp, arr) {
     divElement.setAttribute("id", this.id + "autocomplete-list");
     divElement.setAttribute("class", "autocomplete-items");
     /*append the DIV element as a child of the autocomplete container:*/
-    this.parentNode.appendChild(divElement);
+    this.parentNode.parentNode.appendChild(divElement);
     var counter = 0;
     /*for each item in the array...*/
     for (var i = 0; i < arr.length; i++) {
@@ -34,6 +34,10 @@ function autocomplete(inp, arr) {
 
         var textNode2 = document.createTextNode(arr[i].substr(searchValue.length))
         divItem.appendChild(textNode2)
+        divItem.addEventListener('click',function(e){
+          selectBook(textNode1.textContent+textNode2.textContent)
+        })
+
     
         divElement.appendChild(divItem);
       }
@@ -103,3 +107,18 @@ fetch("/dictionary")
   .catch(function(error) {
     console.log(error);
   });
+
+// const link={
+//   domin1:"https://www.googleapis.com/books/v1/volumes?q=isbn:",
+//   ISBN:"1933988673"
+// }
+//     fetch(link.domin1+link.ISBN)
+//     .then(function(response) {
+//       return response.json();
+//     })
+//     .then(function(data) {
+//      console.log(data)
+//       })
+//     .catch(err => {
+//       console.log(err);
+//     });
