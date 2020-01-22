@@ -16,7 +16,7 @@ function autocomplete(inp, arr) {
     divElement.setAttribute("id", this.id + "autocomplete-list");
     divElement.setAttribute("class", "autocomplete-items");
     /*append the DIV element as a child of the autocomplete container:*/
-    this.parentNode.appendChild(divElement);
+    this.parentNode.parentNode.appendChild(divElement);
     var counter = 0;
     /*for each item in the array...*/
     for (var i = 0; i < arr.length; i++) {
