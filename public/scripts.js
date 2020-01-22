@@ -34,47 +34,37 @@ function autocomplete(inp, arr) {
 
         var textNode2 = document.createTextNode(arr[i].substr(searchValue.length))
         divItem.appendChild(textNode2)
-        
-        /*execute a function when someone clicks on the item value (DIV element):*/
-        divItem.addEventListener("click", function(e) {
-          /*insert the value for the autocomplete text field:*/
-          inp.value = textNode1.textContent+textNode2.textContent
-          /*close the list of autocompleted values,
-                (or any other open lists of autocompleted values:*/
-          closeAllLists();
-        });
+    
         divElement.appendChild(divItem);
       }
     }
     }
   });
-  /*execute a function presses a key on the keyboard:*/
+
   inp.addEventListener("keydown", function(e) {
+    
     var selectList = document.getElementById(this.id + "autocomplete-list");
     if (selectList) selectList = selectList.getElementsByTagName("div");
 
     if (e.keyCode == 40) {
-      /*If the arrow DOWN key is pressed,
-          increase the currentFocus variable:*/
       currentFocus++;
-      /*and and make the current item more visible:*/
       addActive(selectList);
     } else if (e.keyCode == 38) {
-      //up
-      /*If the arrow UP key is pressed,
-          decrease the currentFocus variable:*/
       currentFocus--;
-      /*and and make the current item more visible:*/
       addActive(selectList);
     } else if (e.keyCode == 13) {
-      /*If the ENTER key is pressed, prevent the form from being submitted,*/
       e.preventDefault();
       if (currentFocus > -1) {
-        /*and simulate a click on the "active" item:*/
-        if (selectList) selectList[currentFocus].click();
+        if (selectList) selectBook(selectList[currentFocus].innerText);
       }
     }
   });
+
+  function selectBook(bookName){
+    bookName = bookName.substr(0,1).toUpperCase() + bookName.substr(1,bookName.length);
+    inp.value = bookName;
+    closeAllLists();
+  }
 
   function addActive(selectList) {
     /*a function to classify an item as "active":*/

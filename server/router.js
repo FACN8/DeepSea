@@ -10,8 +10,11 @@ const router = (request, response) => {
     else if(url.indexOf('/public/') !== -1){
         handlers.handlePublic(request, response);
     }
-    else if(url===('/dictionary') !== -1){
+    else if(url===('/dictionary')){
         handlers.handleDictionary(request, response);
+    }
+    else if(url.indexOf('/book') === 0){
+        handlers.handleBook(request, response);
     }
     else {
         response.writeHead(404)
