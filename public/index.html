@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+  <div>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,15 +9,17 @@
     <title>DeepSea</title>
 </head>
 <body>
-  <script>
-    
-    </script>
-    <form autocomplete="off" action='/book' method="POST">
-        <div class="autocomplete" style="width:300px;">
-          <input id="myInput" type="text" name="myBook" placeholder="Book">
-        </div>
-        <input type="submit">
-      </form>
+  <div class="center">
+    <form autocomplete="off" action="/book" method="POST" class="autocomplete-form">
+        <div class="autocomplete" >
+          <div class="input-container">
+            <input id="myInput" type="text" name="mybook" placeholder="book">
+            <input id="mySubmit" type="submit">
+          </div>
+          
+      </div>
+    </form>
+  </div>
 </body>
 <script src="public/scripts.js"></script>
 </html>
