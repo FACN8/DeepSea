@@ -36,10 +36,6 @@ function createList(arr) {
     var textNode2 = document.createTextNode(arr[i].substr(searchValue.length));
     divItem.appendChild(textNode2);
     divItem.addEventListener("click", function(e) {
-      var strong = document.createElement("STRONG");
-      var textNode1 = document.createTextNode(searchValue);
-      strong.appendChild(textNode1);
-      divItem.appendChild(strong);
       selectBook(textNode1.textContent + textNode2.textContent);
     });
     divElement.appendChild(divItem);
