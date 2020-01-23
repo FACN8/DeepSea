@@ -17,22 +17,34 @@ const handleHomeRoute = (request, response) => {
   });
 };
 
-const handleDictionary = (request, response) => {
-  response.end(JSON.stringify(wordsList));
-};
-
-const handleBook = (request, response) => {
-  response.writeHead(301, { Location: "/" });
+const handleSearchVal = (request, response) => {
+  response.writeHead(200);
   var allTheData = "";
   request.on("data", function(chunkOfData) {
     allTheData += chunkOfData;
   });
   request.on("end", function() {
-    var allTheDataString = queryString.parse(allTheData).myBook;
-    
-  
-
-
+    let obj = JSON.stringify(wordsList);
+    obj = JSON.parse(obj);
+    var dataTitle = obj.map(function(obj) {
+      return obj.title;
+    });
+    var newarr = dataTitle.filter(title => {
+      return (
+        title.substr(0, allTheData.length).toUpperCase() ==
+        allTheData.toUpperCase()
+      );
+    });
+    response.end(JSON.stringify(newarr.slice(0, 5)));
+  });
+};
+const handleBook = (request, response) => {
+  response.writeHead(301, { location: "/" });
+  var allTheData = "";
+  request.on("data", function(chunkOfData) {
+    allTheData += chunkOfData;
+  });
+  request.on("end", function() {
     response.end();
   });
 };
@@ -62,6 +74,6 @@ const handlePublic = (request, response) => {
 module.exports = {
   handleHomeRoute,
   handlePublic,
-  handleDictionary,
+  handleSearchVal,
   handleBook
 };
