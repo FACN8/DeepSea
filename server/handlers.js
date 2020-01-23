@@ -2,7 +2,6 @@ const fs = require("fs");
 const path = require("path");
 const queryString = require("querystring");
 const wordsList = require("../data.json");
-var unirest = require("unirest");
 
 const handleHomeRoute = (request, response) => {
   const indexFilePath = path.join(__dirname, "..", "public", "index.html");
@@ -31,25 +30,7 @@ const handleBook = (request, response) => {
   request.on("end", function() {
     var allTheDataString = queryString.parse(allTheData).myBook;
     
-    var req = unirest("POST", "https://googlebooksraygorodskijv1.p.rapidapi.com/getBookshelf"+allTheDataString);
-    
-    req.headers({
-      "x-rapidapi-host": "GoogleBooksraygorodskijV1.p.rapidapi.com",
-      "x-rapidapi-key": "03eca7d594msh34ef155af2e0855p1c1bc1jsnc83e871ff4b9",
-      "content-type": "application/x-www-form-urlencoded"
-    });
-    
-    req.form({});
-    
-    req.end(function (res) {
-      if (res.error) throw new Error(res.error);
-    
-      console.log(res.body);
-    });
-    
-
-
-
+  
 
 
     response.end();
