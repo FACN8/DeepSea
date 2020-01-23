@@ -5,96 +5,86 @@ body {
   user-select: none;
   background: url(https://images.unsplash.com/photo-1546521343-4eb2c01aa44b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80);
   background-size: 100% 100vh;
-
 }
-.center{
+.center {
   display: flex;
   justify-content: center;
   margin-top: 10%;
 }
 .autocomplete {
   position: relative;
-display: flex;
-max-width: 400px;
-margin: auto;
-flex-direction: column;
-
+  display: flex;
+  max-width: 400px;
+  margin: auto;
+  flex-direction: column;
 }
 
 .autocomplete-form {
-width: 100%;
+  width: 100%;
 }
 
-#mySubmit{
-
+#mySubmit {
 }
-#myInput{
-
-
+#myInput {
 }
 input {
   border: 1px solid transparent;
   background-color: #f1f1f1;
   padding: 10px 0;
   font-size: 16px;
-  
 }
 
-input[type=text] {
-  background-color: #f1f1f1; 
+input[type="text"] {
+  background-color: #f1f1f1;
   border-radius: 10px;
   font-size: 20px;
   padding: 0px 10px;
   width: 70%;
   max-width: 400px;
-    width: 100%;
+  width: 100%;
 }
 
-input[type=submit] {
-  background-color: #CDA694;
+input[type="submit"] {
+  background-color: #cda694;
   color: black;
   font-size: 20px;
   border-radius: 10px;
   width: 25%;
   max-width: 100px;
-  transition: all .5s;
+  transition: all 0.5s;
   cursor: pointer;
 }
 
-input[type=submit]:hover {
+input[type="submit"]:hover {
   transform: scale(1.2);
 }
 
 .input-container {
   display: flex;
-  justify-content: center;  
+  justify-content: center;
   width: 100%;
 }
-  .autocomplete-items {
-    border: 1px solid #d4d4d4;
-    border-bottom: none;
-    border-top: none;
-    top: 100%;
-    left: 0;
-    right: 0; 
-    width: 100%;
-    background-color:beige;
-}  
+.autocomplete-items {
+  border: 1px solid #d4d4d4;
+  border-bottom: none;
+  border-top: none;
+  top: 100%;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: beige;
+}
 .autocomplete-items div {
   padding: 10px;
   cursor: pointer;
   background-color: #fff;
   border-bottom: 1px solid #d4d4d4;
-    margin: 2px 0px;
- 
+  margin: 2px 0px;
 }
 .autocomplete-items div:hover {
-  background-color: #EACDC2;
-  
-  
- 
+  background-color: #eacdc2;
 }
 .autocomplete-active {
   background-color: DodgerBlue !important;
   color: #ffffff;
-} 
+}
