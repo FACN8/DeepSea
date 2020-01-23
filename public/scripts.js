@@ -1,13 +1,9 @@
 const inp = document.getElementById("myInput");
 
 var currentFocus;
-/*execute a function when someone writes in the text field:*/
 inp.addEventListener("input", function(e) {
   fetch("/searchVal", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
     body: inp.value
   })
     .then(response => response.json())
@@ -22,22 +18,17 @@ function createList(arr) {
   var divElement,
     divItem,
     searchValue = inp.value;
-  /*close any already open lists of autocompleted values*/
   closeAllLists();
   if (!searchValue) {
     return false;
   }
   currentFocus = -1;
-  /*create a DIV element that will contain the items (values):*/
   divElement = document.createElement("DIV");
   divElement.setAttribute("id", inp.id + "autocomplete-list");
   divElement.setAttribute("class", "autocomplete-items");
-  /*append the DIV element as a child of the autocomplete container:*/
   inp.parentNode.parentNode.appendChild(divElement);
-  /*for each item in the array...*/
   for (var i = 0; i < arr.length; i++) {
     divItem = document.createElement("DIV");
-    /*make the matching letters bold:*/
     var strong = document.createElement("STRONG");
     var textNode1 = document.createTextNode(searchValue);
     strong.appendChild(textNode1);
@@ -45,6 +36,10 @@ function createList(arr) {
     var textNode2 = document.createTextNode(arr[i].substr(searchValue.length));
     divItem.appendChild(textNode2);
     divItem.addEventListener("click", function(e) {
+      var strong = document.createElement("STRONG");
+      var textNode1 = document.createTextNode(searchValue);
+      strong.appendChild(textNode1);
+      divItem.appendChild(strong);
       selectBook(textNode1.textContent + textNode2.textContent);
     });
     divElement.appendChild(divItem);
@@ -77,17 +72,13 @@ function selectBook(bookName) {
 }
 
 function addActive(selectList) {
-  /*a function to classify an item as "active":*/
   if (!selectList) return false;
-  /*start by removing the "active" class on all items:*/
   removeActive(selectList);
   if (currentFocus >= selectList.length) currentFocus = 0;
   if (currentFocus < 0) currentFocus = selectList.length - 1;
-  /*add class "autocomplete-active":*/
   selectList[currentFocus].classList.add("autocomplete-active");
 }
 function removeActive(selectList) {
-  /*a function to remove the "active" class from all autocomplete items:*/
   for (var i = 0; i < selectList.length; i++) {
     selectList[i].classList.remove("autocomplete-active");
   }
