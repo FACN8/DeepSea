@@ -1,16 +1,17 @@
 body {
   font: 16px Arial;
   background-image: radial-gradient(mintcream 0%, gray 100%);
-  /* font-family: 'Indie Flower', cursive; */
   user-select: none;
   background: url(https://images.unsplash.com/photo-1546521343-4eb2c01aa44b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80);
   background-size: 100% 100vh;
 }
+
 .center {
   display: flex;
   justify-content: center;
   margin-top: 10%;
 }
+
 .autocomplete {
   position: relative;
   display: flex;
@@ -23,10 +24,6 @@ body {
   width: 100%;
 }
 
-#mySubmit {
-}
-#myInput {
-}
 input {
   border: 1px solid transparent;
   background-color: #f1f1f1;
@@ -34,18 +31,22 @@ input {
   font-size: 16px;
 }
 
-input[type="text"] {
+
+input[type=text] {
   background-color: #f1f1f1;
   border-radius: 10px;
   font-size: 20px;
+  font-family: 'BioRhyme', serif;
   padding: 0px 10px;
   width: 70%;
   max-width: 400px;
   width: 100%;
 }
 
-input[type="submit"] {
-  background-color: #cda694;
+
+input[type=submit] {
+  background-color: #CDA694;
+  font-family: 'BioRhyme', serif;
   color: black;
   font-size: 20px;
   border-radius: 10px;
@@ -64,6 +65,15 @@ input[type="submit"]:hover {
   justify-content: center;
   width: 100%;
 }
+
+.title {
+  flex-direction: column;
+  font-family: 'BioRhyme', serif;
+  font-size: 150%;
+  text-align: center;
+  color: #CDA694;
+}
+
 .autocomplete-items {
   border: 1px solid #d4d4d4;
   border-bottom: none;
@@ -74,6 +84,7 @@ input[type="submit"]:hover {
   width: 100%;
   background-color: beige;
 }
+
 .autocomplete-items div {
   padding: 10px;
   cursor: pointer;
@@ -81,9 +92,11 @@ input[type="submit"]:hover {
   border-bottom: 1px solid #d4d4d4;
   margin: 2px 0px;
 }
+
 .autocomplete-items div:hover {
-  background-color: #eacdc2;
+  background-color: #EACDC2;
 }
+
 .autocomplete-active {
   background-color: DodgerBlue !important;
   color: #ffffff;
